@@ -11,6 +11,7 @@ cd ~/packages
 # Get the list of available opam packages
 PACKAGES=$(opam list -a --coinstallable-with=ocaml.$OCAML_VER | awk '{print $1}')
 for package in $PACKAGES; do
+  cd ~/packages
   echo Installing $package
   mkdir ${package}_inst
   cd ${package}_inst
