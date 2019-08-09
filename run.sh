@@ -5,10 +5,6 @@ OCAML_VER=4.8.0
 ESY_DIR=$HOME/.esy/3/b
 CURDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-opam update
-opam pin add odig https://github.com/bluddy/odig.git#add_version
-opam install odig
-
 mkdir ~/packages
 cd ~/packages
 
@@ -20,6 +16,7 @@ for package in $PACKAGES; do
   cd ${package}_inst
   cp $CURDIR/package.json .
   esy add @opam/${package}
+  esy install
   esy build
 done
 
