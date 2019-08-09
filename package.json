@@ -1,0 +1,26 @@
+{
+  "name": "hello-ocaml",
+  "version": "0.1.0",
+  "description": "OCaml workflow with Esy",
+  "license": "MIT",
+  "esy": {
+    "build": "dune build -p #{self.name}",
+    "release": {
+      "bin": "hello",
+      "includePackages": [
+        "root",
+        "@opam/camomile"
+      ]
+    }
+  },
+  "scripts": {
+    "test": "esy x hello"
+  },
+  "dependencies": {
+    "ocaml": "~4.8.0"
+  },
+  "devDependencies": {
+    "ocaml": "~4.8.0"
+  }
+}
+
