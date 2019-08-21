@@ -17,6 +17,6 @@ opam update
 opam pin add odig https://github.com/bluddy/odig.git#add_version
 opam install -y odig
 
-sudo apt install autoconf libpcre2-dev \
+sudo apt install -y autoconf libpcre2-dev \
   librocksdb-dev libaio-dev libalsaplayer-dev libao-dev
 
