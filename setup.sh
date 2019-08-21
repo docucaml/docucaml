@@ -4,7 +4,7 @@
 # and can't necessarily refresh docker images
 
 sudo apt update && sudo apt -y upgrade
-sudo apt install -y m4 curl
+sudo apt install -y m4 curl pkgconf
 
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt-get install -y nodejs
@@ -16,4 +16,7 @@ sudo npm install -g esy --unsafe-perm
 opam update
 opam pin add odig https://github.com/bluddy/odig.git#add_version
 opam install -y odig
+
+sudo apt install autoconf libpcre2-dev \
+  librocksdb-dev libaio-dev libalsaplayer-dev libao-dev
 

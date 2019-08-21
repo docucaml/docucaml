@@ -1,12 +1,12 @@
 {
-  "name": "hello-ocaml",
+  "name": "test",
   "version": "0.1.0",
   "description": "OCaml workflow with Esy",
   "license": "MIT",
   "esy": {
-    "build": "dune build -p #{self.name}",
+    "build": "dune build #{self.name}.exe",
     "release": {
-      "bin": "hello",
+      "bin": "test",
       "includePackages": [
         "root",
         "@opam/camomile"
@@ -21,6 +21,9 @@
   },
   "devDependencies": {
     "ocaml": "~4.8.0"
+  },
+  "resolutions": {
+    "yarn-pkg-config": "esy-ocaml/yarn-pkg-config#34947ac97f898c8a94b1731df45aea16f8fc7b3c"
   }
 }
 
