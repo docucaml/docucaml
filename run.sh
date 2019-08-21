@@ -9,7 +9,7 @@ CURDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 cd ~/packages
 
 # Get the list of available opam packages
-PACKAGES=$(opam list -a --coinstallable-with=ocaml.$OCAML_VER | awk '{print $1}')
+PACKAGES=$(opam list -a --coinstallable-with=ocaml.$OCAML_VER | tail -n +3 | awk '{print $1}')
 for package in $PACKAGES; do
   cd ~/packages
   echo !!!! Installing $package !!!!
