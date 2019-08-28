@@ -4,15 +4,17 @@
 OCAML_VER=4.08.1
 ESY_DIR=$HOME/.esy/3/b
 CURDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+PKG_DIR=/packages
 
-[[ ! -d ~/packages ]] && mkdir ~/packages
-cd ~/packages
+[[ ! -d $PKG_DIR ]] && mkdir $PKG_DIR
+cd $PKG_DIR
 
+echo "!!!! Running esy !!!!"
 # Get the list of available opam packages
 PACKAGES=$(opam list -a --coinstallable-with=ocaml.$OCAML_VER | tail -n +3 | awk '{print $1}')
 for package in $PACKAGES; do
-  cd ~/packages
-  echo !!!! Installing $package !!!!
+  cd $PKG_DIR
+  echo "!!!! Installing $package !!!!"
   [[ ! -d ${package}_inst ]] && mkdir ${package}_inst
   cd ${package}_inst
   cp $CURDIR/package.json .
@@ -23,9 +25,3 @@ for package in $PACKAGES; do
   esy install
   esy build
 done
-
-cd ~/packages
-[[ ! -d cache ]] && mkdir cache
-[[ ! -d doc ]] && mkdir doc
-odig odoc --esy-support --libdir=$ESY_DIR --cachedir=$HOME/packages/cache --docdir=$HOME/packages/doc
-
