@@ -1,10 +1,7 @@
 FROM ocaml/opam2
-RUN sudo apt update && \
-    sudo apt install -y npm m4 && \
-    sudo npm install npm@latest -g && \
-    sudo npm cache clean -f && \
-    sudo npm install -g n && \
-    sudo n stable
-RUN sudo npm install -g esy --unsafe-perm
-RUN opam update && \
-    opam install odig
+COPY setup1.sh /home/opam/setup1.sh
+COPY setup2.sh /home/opam/setup2.sh
+COPY setup3.sh /home/opam/setup3.sh
+RUN /home/opam/setup1.sh
+RUN /home/opam/setup2.sh
+RUN /home/opam/setup3.sh

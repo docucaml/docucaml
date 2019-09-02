@@ -10,5 +10,5 @@ echo "!!! Running odig !!!"
 cd $PKG_DIR
 [[ ! -d cache ]] && mkdir cache
 [[ ! -d doc ]] && mkdir doc
-odig odoc --esy-support --libdir=$ESY_DIR --cachedir=$PKG_DIR/cache --docdir=$PKG_DIR/doc
+odig odoc -j 1 --esy-support --libdir=$ESY_DIR --cachedir=$PKG_DIR/cache --docdir=$PKG_DIR/doc
 

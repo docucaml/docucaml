@@ -12,6 +12,10 @@ cd $PKG_DIR
 echo "!!!! Running esy !!!!"
 # Get the list of available opam packages
 PACKAGES=$(opam list -a --coinstallable-with=ocaml.$OCAML_VER | tail -n +3 | awk '{print $1}')
+
+# Debug conf packages
+#PACKAGES=$(opam list -a 'conf-libpcre' | tail -n +3 | awk '{print $1}')
+
 for package in $PACKAGES; do
   cd $PKG_DIR
   echo "!!!! Installing $package !!!!"

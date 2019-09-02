@@ -14,6 +14,7 @@ sudo npm install -g esy --unsafe-perm
 
 # Install odig
 opam update
+opam pin add odoc https://github.com/bluddy/odoc.git#fix
 opam pin add odig https://github.com/bluddy/odig.git#add_version
 opam install -y odig
 
